@@ -5,7 +5,7 @@
 
 const Card = ({title}) => {
     return (
-        <div>
+        <div className="card">
             <h2>{title}</h2>
         </div>
     )
@@ -13,14 +13,12 @@ const Card = ({title}) => {
 
 const App = () => {
     return (
-        <>
-            <h2>Functional Arrow Component</h2>
-
+        <div className="card-container">
             <Card title="Avatar" rating={5} isCool={true} actors={[{name:"Actor Name"}]}/>
             <Card title="Moana"/>
             <Card title="John Wick"/>
             <Card title="Avangers"/>
-        </>
+        </div>
 
     )
 }
