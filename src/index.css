@@ -31,3 +31,11 @@ h2{
   border-radius:  10px;
   min-height: 100px;
 }
+button{
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  text-align: right;
+  font-size: 30px;
+  width: 100%;
+}
