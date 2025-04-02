@@ -4,6 +4,7 @@ import Spinner from "./components/Spinner.jsx";
 import MovieCard from "./components/MovieCard.jsx";
 import {useDebounce} from "react-use";
 import search from "./components/Search.jsx";
+import {updateSearchCount} from "./appwrite.js";
 
 const API_BASE_URL = "https://api.themoviedb.org/3";
 
@@ -40,8 +41,6 @@ const App = () => {
 
             const data = await response.json();
 
-            console.log(data);
-
             if(data.Response === 'False'){
                 setErrorMessage(data.Error || 'Fail to fetch movies');
                 setMovieList([]);
@@ -49,6 +48,10 @@ const App = () => {
             }
 
             setMovieList(data.results || []);
+
+            if(query && data.results.length > 0){
+                await updateSearchCount(query, data.results[0]);
+            }
         }catch(err){
             console.log(`Error fetching movies :  ${err}`);
             setErrorMessage('Error fetching movies. Please try again later.  ');
