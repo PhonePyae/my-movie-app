@@ -1,10 +1,5 @@
 import React from 'react'
 
-const person = {
-    name : "Bruce Wayne",
-    age : 35,
-    location : "Gotham City"
-}
 const Search = ({searchTerm, setSearchTerm}) => {
     return (
         <div className="search">
